@@ -1,0 +1,47 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: fe23devs
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: insults-2
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: insults-api-2
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-north-1
+  deploymentMethod: direct
+  iam: 
+    role: arn:aws:iam::024848481193:role/LambdaDynamoDbRole
+
+functions:
+  GetInsults:
+    handler: functions/GetInsults/index.handler
+    events:
+      - httpApi:
+          path: /api/insults
+          method: get
+  PostInsult:
+    handler: functions/PostInsult/index.handler
+    events:
+      - httpApi:
+          path: /api/insults
+          method: post
+  GetInsult:
+    handler: functions/GetInsult/index.handler
+    events:
+      - httpApi:
+          path: /api/insults/{id}
+          method: get
+  UpdateInsult:
+    handler: functions/UpdateInsult/index.handler
+    events:
+      - httpApi:
+          path: /api/insults/{id}
+          method: put
+  DeleteInsult:
+    handler: functions/DeleteInsult/index.handler
+    events:
+      - httpApi:
+          path: /api/insults/{id}
+          method: delete
+  
