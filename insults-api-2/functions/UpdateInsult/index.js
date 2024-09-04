@@ -17,14 +17,12 @@ exports.handler = async (event) => {
 				':insult': insult,
 				':play' : play
 				}
-	
-			}).promise();
+			});
 
 			return sendResponse(200, { success : true });
 		} catch(error) {
 			return sendError(404, { success : false, message : error.message });
 		}
-		
 	} else {
 		return sendError(404, 'Could not update insult!');
 	}

@@ -15,7 +15,7 @@ exports.handler = async (event) => {
 					insult : insult,
 					play : play
 				}
-			}).promise();
+			});
 
 			return sendResponse(200, { success : true });
 

@@ -8,7 +8,7 @@ exports.handler = async (event) => {
 		await db.delete({
 			TableName : 'insults-db',
 			Key : { id : id }
-		}).promise();
+		});
 
 		return sendResponse(200, {success : true });
 	} catch(error) {

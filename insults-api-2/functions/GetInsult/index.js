@@ -10,7 +10,7 @@ exports.handler = async (event) => {
 			Key : {
 				id : id
 			}
-		}).promise();
+		});
 		
 		if(Item) {
 			return sendResponse(200, Item);

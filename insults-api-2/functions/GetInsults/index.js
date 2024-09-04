@@ -9,7 +9,7 @@ exports.handler = async (event) => {
 			ExpressionAttributeNames : {
 				'#DYNOBASE_insult' : 'insult'
 			}
-		}).promise();
+		});
 
 		if(Items) {
 			return sendResponse(200, Items);
